@@ -42,7 +42,7 @@ v2ray uninstall 卸载 V2Ray
 1. 安装google浏览器插件：Proxy SwitchyOmega  
 <https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif>  
 
-配置插件：  
+2. 配置插件：  
 
 ![avatar](https://raw.githubusercontent.com/tanxw123123/vpn/master/v2ray/img/v2-02.jpg)  
 
