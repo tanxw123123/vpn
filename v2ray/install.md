@@ -26,5 +26,10 @@ v2ray uninstall 卸载 V2Ray
 1. windows：  
 <https://github.com/2dust/v2rayN/releases/download/3.29/v2rayN.zip>   
 <https://github.com/v2fly/v2ray-core/releases/download/v4.31.0/v2ray-windows-64.zip>  
-对v2ray-windows-64.zip 和 v2rayN进行解压，然后将 v2rayN 目录下所有文件复制到v2ray-windows-64解压后的目录，即两个下载好的文件需要在同一目录。  
+对v2ray-windows-64.zip 和 v2rayN.zip 进行解压，然后将 v2rayN 目录下所有文件复制到v2ray-windows-64解压后的目录，即两个下载好的文件需要在同一目录。  
 【【【点击v2rayN.exe启动】】】
+
+# 配置客户端
+1. windows：  
+复制vmess链接，Ctrl + v导入，修改参数设置如下：  
+
