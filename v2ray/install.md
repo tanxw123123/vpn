@@ -32,4 +32,11 @@ v2ray uninstall 卸载 V2Ray
 # 配置客户端
 1. windows：  
 复制vmess链接，Ctrl + v导入，修改参数设置如下：  
+本地监听端口1080，仅开启http代理,开启Mux多路复用  
+![avatar](https://raw.githubusercontent.com/tanxw123123/vpn/master/v2ray/img/v2-01.jpg)  
+
+# 配置浏览器代理（推荐google浏览器）
+1. 安装google浏览器插件：Proxy SwitchyOmega  
+<https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif>  
+![avatar](https://raw.githubusercontent.com/tanxw123123/vpn/master/v2ray/img/v2-02.jpg)  
 
