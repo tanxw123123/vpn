@@ -17,4 +17,14 @@ IPv4 Auto-Assign:
 我这里自定义192.168.10.0/24作为内网网段。  
 ![avatar](https://raw.githubusercontent.com/tanxw123123/vpn/master/zerotier/img/zt-01.jpg)  
 ![avatar](https://raw.githubusercontent.com/tanxw123123/vpn/master/zerotier/img/zt-02.jpg)  
+# 2. 客户端加入网络
+1. linux客户端：  
+```
+$ curl -s https://install.zerotier.com | sudo bash
+$ zerotier-cli join 网络ID
+```
+2. windows客户端：  
+下载客户端：<https://www.zerotier.com/download/>  
+加入网络：  
+![avatar](https://raw.githubusercontent.com/tanxw123123/vpn/master/zerotier/img/zt-03.jpg)   
 
