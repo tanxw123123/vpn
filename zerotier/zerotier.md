@@ -70,14 +70,14 @@ net.ipv4.ip_forward=1
 ```
 从 ec2 实例的操作菜单中禁用 ZT 网关实例的源/目标检查。  
 
-登录到您的 AWS 账户后，转到Services->EC2->Instances
-选择充当 ZeroTier 网关的实例，然后选择 Actions- >Networking->Change Source/Dest Check
-如果启用则禁用设置（默认为启用）
+- 登录到您的 AWS 账户后，转到Services->EC2->Instances
+- 选择充当 ZeroTier 网关的实例，然后选择 Actions- >Networking->Change Source/Dest Check
+- 如果启用则禁用设置（默认为启用）
 ```
 ```
 添加路由以通过充当 ZeroTier 网关的设备将流量发送到您的本地网络。
-登录到您的 AWS 账户后，转到Services->VPC->Route Tables
-选择要更改的路由，然后选择Actions->Edit routes
+- 登录到您的 AWS 账户后，转到Services->VPC->Route Tables
+- 选择要更改的路由，然后选择Actions->Edit routes
 ```
 ![avatar](https://raw.githubusercontent.com/tanxw123123/vpn/master/zerotier/img/zt-05.jpg)  
 选择实例为网关这台机器  
