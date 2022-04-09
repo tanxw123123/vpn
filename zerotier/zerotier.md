@@ -112,8 +112,8 @@ $ zerotier-idtool genmoon moon.json
 方法一：
   打开服务程序services.msc, 找到服务"ZeroTier One", 并且在属性内找到该服务可执行文件路径,我的环境下为C:\ProgramData\ZeroTier\One\zerotier-one_x64.exe, 打开该文件夹, 并且在其下建立moons.d文件夹,然后将moon服务器下生成的000xxxx.moon文件,拷贝到此文件夹内..再重启该服务即可..
 
-方法二：
 ```
+方法二：
 在命令行中输入：zerotier-cli orbit 9d2456s2d7 9d2456s2d7，其中9d2456s2d7为私有根服务器的ID。
 ```
 ```
