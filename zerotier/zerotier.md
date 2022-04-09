@@ -52,7 +52,7 @@ $ zerotier-cli join 网络ID
 2. 通过配置路由方式  
 我这里举例通过ZT访问aws的内网资源,还是拿一台linux机器作为网关设备  
 - aws内网资源： 10.0.0.0/16  
-- linux网关机器：  aws内网随便一台机器
+- linux网关机器：  aws内网随便一台机器  
 网关机器配置：  
 - 安装zerotier客户端  
 - 加入创建的网络  
@@ -64,9 +64,26 @@ net.ipv4.ip_forward=1
 ```
 后台配置路由规则：  
 ![avatar](https://raw.githubusercontent.com/tanxw123123/vpn/master/zerotier/img/zt-04.jpg)  
+这条规则是，本地网络通过网关设备的 192.168.10.1 到 aws内网 的路由，我们还需要从aws到本地网络的路由，在下面配置  
 
+在AWS中，执行操作如下：  
+```
+从 ec2 实例的操作菜单中禁用 ZT 网关实例的源/目标检查。  
 
-
+登录到您的 AWS 账户后，转到Services->EC2->Instances
+选择充当 ZeroTier 网关的实例，然后选择 Actions- >Networking->Change Source/Dest Check
+如果启用则禁用设置（默认为启用）
+```
+```
+添加路由以通过充当 ZeroTier 网关的设备将流量发送到您的本地网络。
+登录到您的 AWS 账户后，转到Services->VPC->Route Tables
+选择要更改的路由，然后选择Actions->Edit routes
+```
+![avatar](https://raw.githubusercontent.com/tanxw123123/vpn/master/zerotier/img/zt-05.jpg)  
+选择实例为网关这台机器  
+```
+最后，aws内网资源安全组加白局域网网段 192.168.10.0/24，允许局域网访问。
+```
 
 
 
