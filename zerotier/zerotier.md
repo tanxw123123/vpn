@@ -48,7 +48,9 @@ $ zerotier-cli join 网络ID
 10.0.0.0/16是要访问的内网资源  
 
 但是nat伪装有个缺点，访问资源看到的源地址是这台网关设备的ip，不好溯源访问源地址。  
+
 #################################################################################  
+
 2. 通过配置路由方式  
 我这里举例通过ZT访问aws的内网资源,还是拿一台linux机器作为网关设备  
 - aws内网资源： 10.0.0.0/16  
@@ -84,6 +86,36 @@ net.ipv4.ip_forward=1
 ```
 最后，aws内网资源安全组加白局域网网段 192.168.10.0/24，允许局域网访问。
 ```
+# 4. 搭建moon节点
+- PLANET 行星服务器，Zerotier 各地的根服务器，有日本、新加坡等地
+- moon 卫星级服务器，用户自建的私有根服务器，起到中转加速的作用
+- LEAF 相当于各个枝叶，就是每台连接到该网络的机器节点。
 
+1. 安装和配置:  
+```
+$ curl -s https://install.zerotier.com | sudo bash
 
+生成moon.json模板
+$ cd /var/lib/zerotier-one
+$ zerotier-idtool initmoon identity.public > moon.json
+
+vim 编辑 moon.json，修改 “stableEndpoints” 为 VPS 的公网的 IP，以 IPv4 为例，记得带引号：
+"stableEndpoints": [ "8.8.8.8/9993" ]
+
+生成签名文件：
+$ zerotier-idtool genmoon moon.json
+执行之后生成 000000xxxx.moon 文件。
+```
+
+2. 客户机连接moon节点
+- windows客户端加入moon节点：  
+  打开服务程序services.msc, 找到服务"ZeroTier One", 并且在属性内找到该服务可执行文件路径,我的环境下为C:\ProgramData\ZeroTier\One\zerotier-one_x64.exe, 打开该文件夹, 并且在其下建立moons.d文件夹,然后将moon服务器下生成的000xxxx.moon文件,拷贝到此文件夹内..再重启该服务即可..
+
+```
+验证加入：
+管理员身份运行cmd
+C:\ProgramData\ZeroTier\One>zerotier-one_x64.exe -q listpeers
+```
+![avatar](https://raw.githubusercontent.com/tanxw123123/vpn/master/zerotier/img/zt-06.jpg)  
+- linux客户端加入moon节点：
 
